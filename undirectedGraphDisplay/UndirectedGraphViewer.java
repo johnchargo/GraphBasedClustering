@@ -28,6 +28,11 @@ import com.jgraph.layout.JGraphFacade;
 import com.jgraph.layout.JGraphLayout;
 import com.jgraph.layout.organic.*;
 
+/*
+ * A viewer tool that allows users to view graphs created using the UndirectedGraphReader
+ * without having to recompute them.
+ */
+
 public class UndirectedGraphViewer {
 
 	private static JGraphModelAdapter<String, DefaultWeightedEdge> jgAdapter;
@@ -43,9 +48,6 @@ public class UndirectedGraphViewer {
 	    objectIn = new ObjectInputStream(new BufferedInputStream(new FileInputStream("ClusteredGraphOutput.ser")));
 	    g = (SimpleWeightedGraph<String,DefaultWeightedEdge>) objectIn.readObject();
 	    objectIn.close();
-	    
-	    
-	    
 	    
 		// create a visualization using JGraph, via the adapter
         jgAdapter = new JGraphModelAdapter<String, DefaultWeightedEdge>(g);
@@ -64,7 +66,6 @@ public class UndirectedGraphViewer {
         layout.run(facade); // Run the layout on the facade. Note that layouts do not implement the Runnable interface, to avoid confusion
         Map nested = facade.createNestedMap(true, true); // Obtain a map of the resulting attribute changes from the facade
         jgraph.getGraphLayoutCache().edit(nested); // Apply the results to the actual graph
-        
       
         //Create a JPanel  
         JPanel panel=new JPanel();

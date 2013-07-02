@@ -9,7 +9,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.filechooser.*;
 
 /*
- * 
+ * Used to save graphs to file for later use with the graph viewer tool.
  */
 public class FileIoClass extends JPanel
                              implements ActionListener {

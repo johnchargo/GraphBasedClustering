@@ -2,6 +2,11 @@ package undirectedGraphDisplay;
 
 import java.awt.Color;
 
+/*
+ * Class used to calculate the color to use for weighted edges.
+ * Heavier weighted edges are given a stronger color.
+ */
+
 public class ColorGradient {
 	private static Color [] colors;
 	ColorGradient()
@@ -27,7 +32,6 @@ public class ColorGradient {
 		if((maxColor-minColor > 0))
 		{
 			double adjustedInput =(((double)colors.length)/(maxColor -minColor))*(colorChoice-minColor);
-			//System.out.println("adjusted input is: " + adjustedInput);
 			return colors[(int)adjustedInput];
 		}
 		else

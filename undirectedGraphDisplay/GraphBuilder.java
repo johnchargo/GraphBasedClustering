@@ -13,12 +13,17 @@ import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.SimpleWeightedGraph;
 
+/*
+ * Basis of graph builder. This takes a .csv file that contains software type-usage relationships and builds them into a
+ * jGraph SimpleWeightedGraph that can later be manipulated for clustering.
+ */
+
 public class GraphBuilder {
 	
 	SimpleWeightedGraph<String, DefaultWeightedEdge> graphFromFile(Vector<EdgeObject> edges) throws IOException
 {
 	// Graph<V, E> where V is the type of the vertices and E is the type of the edges
-		SimpleWeightedGraph<String, DefaultWeightedEdge> g = new SimpleWeightedGraph<String, DefaultWeightedEdge>(DefaultWeightedEdge.class); 
+	SimpleWeightedGraph<String, DefaultWeightedEdge> g = new SimpleWeightedGraph<String, DefaultWeightedEdge>(DefaultWeightedEdge.class); 
 
 	File file = new File("OutputRelationshipsBetweenFunctions.csv");
 	BufferedReader bufRdr  = new BufferedReader(new FileReader(file));

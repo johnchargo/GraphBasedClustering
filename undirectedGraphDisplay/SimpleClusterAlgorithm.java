@@ -12,6 +12,19 @@ import org.jgrapht.alg.ConnectivityInspector;
 import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.SimpleWeightedGraph;
 
+/*
+ * Implementation of the "Simple Cluster Algorithm" described in thesis text.
+ * Allows for simple clustering based on the connectivity of a graph.
+ * 
+ * This class does clustering based on connectivity between nodes and stores the 
+ * output clusters in Clusters.csv
+ * 
+ * The Algorithm runs by:
+ *    1. remove all components that are unconnected to begin with. These won't cluster so considering them is pointless.
+ *    2. While a cluster has more than maxClusterSize number of nodes in it break clusters until all have less than maxClusterSize
+ *    3. Document results
+ */
+
 public class SimpleClusterAlgorithm {
 	
 	Vector<TypeObject> clusterTypeUsage;

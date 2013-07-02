@@ -10,6 +10,11 @@ import org.jgrapht.alg.ConnectivityInspector;
 import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.SimpleWeightedGraph;
 
+/* 
+ * Tool used early in thesis research to analyze the connectivity of a software graph. Outputs
+ * are saved to a file "ClustersByFilterSize.csv"
+ */
+
 public class ConnectivityAnalyzer {
 	static void connectivityAnalysis(SimpleWeightedGraph<String,DefaultWeightedEdge> g) throws IOException
 	{
@@ -71,8 +76,7 @@ public class ConnectivityAnalyzer {
 				writer.append(Integer.toString(setOfConnectedNodes.size()));
 		        writer.append(',');
 			}
-		    writer.append('\n');		
-		    
+		    writer.append('\n');				    
 		    
 		    //remove edges based on filter
 		    Set<DefaultWeightedEdge> allEdges = g.edgeSet();
@@ -84,8 +88,7 @@ public class ConnectivityAnalyzer {
 				if(g.getEdgeWeight(edge) <= i)
 				{
 					removedEdgeCounter++;
-					//System.out.println("looking to remove edge " + edge.toString() + " weight " + g.getEdgeWeight(edge) + 
-					//		" edges deleted: " + removedEdgeCounter);
+
 					// if edge is less than i, remove edge
 					g.removeEdge(edge);
 					allEdges = g.edgeSet();
